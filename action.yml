@@ -1,5 +1,6 @@
 name: 'Pull Request Comment Trigger'
 description: 'Monitors pull request descriptions and comments for specific trigger phrases, enabling conditional workflow execution based on comment content.'
+author: step-security
 inputs:
   reaction:
     description: Optional emoji reaction to add to the comment when a trigger is detected. Must be a valid GitHub reaction type such as 'rocket', 'eyes', 'thumbs_up', or 'heart'.

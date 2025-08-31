@@ -6,6 +6,10 @@
   "scripts": {
     "build": "ncc build index.js"
   },
+  "repository": {
+  "type": "git", 
+  "url": "https://github.com/step-security/pull-request-comment-trigger.git"
+  },
   "keywords": [],
   "author": "step-security",
   "license": "MIT",
