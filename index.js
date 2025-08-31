@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const core = require("@actions/core");
-const { context, GitHub } = require("@actions/github");
+const { context, getOctokit} = require("@actions/github");
 const axios = require("axios")
 
 async function validateSubscription() {
@@ -106,18 +106,18 @@ function setTriggeredOutput(isTriggered) {
  * Adds a reaction to the comment or pull request
  */
 async function addReactionToComment(token, owner, repo, reaction) {
-    const octokit = new GitHub(token);
+    const octokit = getOctokit(token);
     const eventType = context.eventName;
     
     if (eventType === "issue_comment") {
-        await octokit.reactions.createForIssueComment({
+        await octokit.rest.reactions.createForIssueComment({    
             owner,
             repo,
             comment_id: context.payload.comment.id,
             content: reaction
         });
     } else {
-        await octokit.reactions.createForIssue({
+        await octokit.rest.reactions.createForIssue({
             owner,
             repo,
             issue_number: context.payload.pull_request.number,

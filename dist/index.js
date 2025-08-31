@@ -40096,7 +40096,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"application/1d-interleaved-parityfec
 var __webpack_exports__ = {};
 
 const core = __nccwpck_require__(7484);
-const { context, GitHub } = __nccwpck_require__(3228);
+const { context, getOctokit} = __nccwpck_require__(3228);
 const axios = __nccwpck_require__(7269)
 
 async function validateSubscription() {
@@ -40201,18 +40201,18 @@ function setTriggeredOutput(isTriggered) {
  * Adds a reaction to the comment or pull request
  */
 async function addReactionToComment(token, owner, repo, reaction) {
-    const octokit = new GitHub(token);
+    const octokit = getOctokit(token);
     const eventType = context.eventName;
     
     if (eventType === "issue_comment") {
-        await octokit.reactions.createForIssueComment({
+        await octokit.rest.reactions.createForIssueComment({    
             owner,
             repo,
             comment_id: context.payload.comment.id,
             content: reaction
         });
     } else {
-        await octokit.reactions.createForIssue({
+        await octokit.rest.reactions.createForIssue({
             owner,
             repo,
             issue_number: context.payload.pull_request.number,
