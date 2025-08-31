@@ -9,6 +9,9 @@ jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v5
+        
       - uses: ./
         id: check
         with:
