@@ -1,0 +1,26 @@
+name: 'Pull Request Comment Trigger'
+description: 'Monitors pull request descriptions and comments for specific trigger phrases, enabling conditional workflow execution based on comment content.'
+author: step-security
+inputs:
+  reaction:
+    description: Optional emoji reaction to add to the comment when a trigger is detected. Must be a valid GitHub reaction type such as 'rocket', 'eyes', 'thumbs_up', or 'heart'.
+    required: false
+    default: ""
+  trigger:
+    description: 'The trigger phrase to search for in pull request descriptions and comments. Can be any text string like "@deploy", "#run-tests", or "build staging".'
+    required: true
+  prefix_only:
+    description: When set to 'true', the trigger phrase must appear at the beginning of the comment. When 'false', the trigger can appear anywhere in the comment text.
+    required: false
+    default: "false"
+outputs:
+  triggered:
+    description: String value 'true' if the trigger phrase was found in the comment or PR description, 'false' otherwise.
+  comment_body:
+    description: The full text content of the comment or pull request description that was analyzed for triggers.
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  icon: check-circle
+  color: red
