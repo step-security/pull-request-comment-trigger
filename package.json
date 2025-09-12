@@ -17,6 +17,6 @@
     "@actions/core": "^1.2.0",
     "@actions/github": "^6.0.1",
     "@vercel/ncc": "^0.38.3",
-    "axios": "^1.11.0"
+    "axios": "^1.12.0"
   }
 }
