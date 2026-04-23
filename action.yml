@@ -19,7 +19,7 @@ outputs:
   comment_body:
     description: The full text content of the comment or pull request description that was analyzed for triggers.
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'dist/index.js'
 branding:
   icon: check-circle

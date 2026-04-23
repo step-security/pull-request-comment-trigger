@@ -1,3 +1,5 @@
+[![StepSecurity Maintained Action](https://raw.githubusercontent.com/step-security/maintained-actions-assets/main/assets/maintained-action-banner.png)](https://docs.stepsecurity.io/actions/stepsecurity-maintained-actions)
+
 # Pull Request Comment Trigger
 
 A GitHub Action that monitors pull request descriptions and comments for specific trigger phrases, enabling conditional workflow execution based on comment content.
